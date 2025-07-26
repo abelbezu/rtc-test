@@ -1,0 +1,71 @@
+body {
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.piano {
+    display: flex;
+    position: relative; /* Crucial for positioning black keys */
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.key {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.07s ease;
+}
+
+.white {
+    width: 80px;
+    height: 320px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0 0 5px 5px;
+}
+
+.white.active {
+    background-color: #eee;
+    transform: scale(0.98);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
+}
+
+.black {
+    width: 50px;
+    height: 180px;
+    background-color: #222;
+    border-radius: 0 0 4px 4px;
+    position: absolute; /* Positioned relative to the .piano container */
+    z-index: 2; /* Appear on top of white keys */
+    box-shadow: inset 0 -3px 5px rgba(255,255,255,0.1);
+}
+
+.black.active {
+    background-color: #444;
+    transform: scale(0.98);
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.5);
+}
+
+/* Positioning for each black key */
+.black[data-note="C#4"] { left: 75px; }
+.black[data-note="D#4"] { left: 155px; }
+.black[data-note="F#4"] { left: 315px; }
+.black[data-note="G#4"] { left: 395px; }
+.black[data-note="A#4"] { left: 475px; }
+
+
+.instructions {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
